@@ -1,0 +1,2206 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Demo API",
+        "version": "1.0.0",
+        "description": "This is a demo API R8ckie... Để sử dụng các api 'For Admin'. cần đăng login bằng api login admin access rồi sử dụng client_id và refreshToken trả về để gắn vào headers"
+    },
+    "servers": [
+        {
+            "url": "https://r8ckie-backend.vercel.app"
+        },
+        {
+            "url": "http://localhost:4001"
+        }
+    ],
+    "paths": {
+        "/v1/dashboard/api/products/{productId}/variants": {
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "GetAllVariantByIdProduct",
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a241553596d16022be20e"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{productId}/variants/{id}": {
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "FindVariantById",
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647c9d089c12ed6112ff495c"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647cbae79ac446c8c40b4da4"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{productId}/variants/count": {
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "Count Variants",
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a241553596d16022be20e"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/variants/create": {
+            "post": {
+                "tags": ["Product Api For Admin"],
+                "summary": "Create",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "type": "string",
+                                "example": "\"{\\n    \\\"product_id\\\": \\\"647c9d089c12ed6112ff495c\\\",\\n    \\\"price\\\": 200000,\\n    \\\"inventory_quantity\\\": 30,\\n    \\\"position\\\": 1,\\n    \\\"option1\\\": \\\"MidNight\\\",\\n    \\\"option2\\\": \\\"8GB\\\",\\n    \\\"option3\\\": \\\"1GB\\\",\\n    \\\"variant_image\\\": \\\"647a241553596d16022be20a\\\"\\n}\""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/variants/{variantId}": {
+            "patch": {
+                "tags": ["Product Api For Admin"],
+                "summary": "UpdateVariant",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "type": "string",
+                                "example": "\"{\\n    \\\"price\\\": 9111,\\n    \\\"option1\\\": \\\"MidNight\\\",\\n    \\\"option2\\\": \\\"8GB\\\",\\n    \\\"option3\\\": \\\"1GB\\\"\\n}\""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "variantId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647cc75ce61c3c3fe29fe65e"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{productId}/variants/{variantId}": {
+            "delete": {
+                "tags": ["Product Api For Admin"],
+                "summary": "Delete Variant",
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a241553596d16022be20e"
+                    },
+                    {
+                        "name": "variantId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a25fe53596d16022be259"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/admin/create": {
+            "post": {
+                "tags": ["Admin Access"],
+                "summary": "Create Account",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "first_name": "Bùi",
+                                    "last_name": "Thiện",
+                                    "email": "admin02@gmail.com",
+                                    "password": "admin02",
+                                    "phone_number": "0357748844",
+                                    "roles": ["Admin"]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/admin/login": {
+            "post": {
+                "tags": ["Admin Access"],
+                "summary": "Login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "email": "admin01@gmail.com",
+                                    "password": "admin01"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/admin/logout": {
+            "post": {
+                "tags": ["Admin Access"],
+                "summary": "Logout",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/admin/refresh": {
+            "post": {
+                "tags": ["Admin Access"],
+                "summary": "Refresh Token",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/customers": {
+            "get": {
+                "tags": ["Customer Api For Admin"],
+                "summary": "GetAllCustomer",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "50"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ctime"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "first_name,last_name,email,addresses"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/customers/count": {
+            "get": {
+                "tags": ["Customer Api For Admin"],
+                "summary": "Count Customer",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/customers/{id}": {
+            "get": {
+                "tags": ["Customer Api For Admin"],
+                "summary": "FindCustomerById",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "50"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ctime"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "first_name,last_name,phone_email,default_address,adress"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a18c2691f35b6da86cdb8"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/customers/search/{keyword}": {
+            "get": {
+                "tags": ["Customer Api For Admin"],
+                "summary": "GetListWithKeySearch",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "50"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "first_name,last_name,email,gender,birthday,phone_number"
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "buithien"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/register": {
+            "post": {
+                "tags": ["Customer Access"],
+                "summary": "Register",
+                "description": "API đăng ký khách hàng sử dụng phương thức HTTP POST.\n\n**URL Endpoint:** [http://localhost:4001/v1/api/customer/register](http://localhost:4001/v1/api/customer/register)\n\n**HTTP Method:** POST\n\n**Request Headers:**\n\n- Content-Type: application/json\n    \n\n**Request Body:**\n\n``` json\n{\n    \"first_name\": \"Bui\",\n    \"last_name\": \"Thien\",\n    \"email\": \"builychung.work@gmail.com\",\n    \"password\": \"test123\",\n    \"gender\": \"Male\",\n    \"phone_number\": \"0357748844\",\n    \"birthday\": \"17/08/2001\"\n}\n\n```\n\n**Response Status Codes:**\n\n- 201 CREATED - Nếu khách hàng được tạo thành công.\n- 400 BAD REQUEST - Nếu yêu cầu không hợp lệ hoặc thiếu thông tin bắt buộc.\n- 409 CONFLICT - Nếu email đã được đăng ký trước đó.\n    \n\n**Response Body:**\n\n``` json\n{\n    \"message\": \"Verify your email, please\",\n    \"statusCode\": 201,\n    \"metadata\": {\n        \"user\": {\n            \"_id\": \"6464b6777b1bb573537fc2a2\",\n            \"email\": \"builychung.work@gmail.com\",\n            \"first_name\": \"Bui\",\n            \"last_name\": \"Thien\",\n            \"phone_number\": \"0357748844\",\n            \"gender\": \"Male\",\n            \"birthday\": \"17/08/2001\"\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY0YjY3NzdiMWJiNTczNTM3ZmMyYTIiLCJlbWFpbCI6ImJ1aWx5Y2h1bmcud29ya0BnbWFpbC5jb20iLCJpYXQiOjE2ODQzMjE5MTIsImV4cCI6MTY4NDQ5NDcxMn0.lFRvhXbrsDPFlRhVNAG546H3byS4umEEcGjk6ZscWWg\",\n            \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY0YjY3NzdiMWJiNTczNTM3ZmMyYTIiLCJlbWFpbCI6ImJ1aWx5Y2h1bmcud29ya0BnbWFpbC5jb20iLCJpYXQiOjE2ODQzMjE5MTIsImV4cCI6MTY4NDkyNjcxMn0.TzqLmOCfo2r44JfOmyTa3Z4_5rPTZDlQeratxek9z9k\",\n            \"expires\": 655200000\n        }\n    }\n}\n\n```\n\n**Các trường thông tin trong request body gồm:**\n\n- `first_name` (bắt buộc): Tên của khách hàng.\n- `last_name` (bắt buộc): Họ của khách hàng.\n- `email` (bắt buộc): Địa chỉ email của khách hàng, duy nhất trên hệ thống.\n- `password` (bắt buộc): Mật khẩu của khách hàng.\n- `gender` (tùy chọn): Giới tính của khách hàng (Nam/Nữ).\n- `phone_number` (tùy chọn): Số điện thoại của khách hàng.\n- `birthday` (tùy chọn): Ngày sinh của khách hàng.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "first_name": "Hàn",
+                                    "last_name": "Nguyệt",
+                                    "email": "buithien.dev4@gmail.com",
+                                    "password": "test123",
+                                    "repeat_password": "test123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/login": {
+            "post": {
+                "tags": ["Customer Access"],
+                "summary": "Login",
+                "description": "API login khách hàng sử dụng phương thức HTTP POST:\n\n**URL Endpoint:** [http://localhost:4001/v1/api/customer/login](http://localhost:4001/v1/api/customer/loginHTTP)\n\n**HTTP Method:** POST\n\n**Request Headers:**\n\n- Content-Type: application/json\n    \n\n**Request Body:**\n\n``` json\n{\n    \"email\": \"waitingforlovebmt1@gmail.com\",\n    \"password\": \"test123\"\n}\n\n```\n\n**Response Status Codes:**\n\n- 200 OK - Nếu khách hàng login thành công\n- 400 BAD REQUEST - Nếu yêu cầu không hợp lệ hoặc thiếu thông tin bắt buộc.\n- 403 FORBIDDEN - Nếu email đã được đăng ký nhưng chưa được verify\n    \n\n**Response Body:**\n\n``` json\n{\n    \"message\": \"Login success\",\n    \"statusCode\": 200,\n    \"metadata\": {\n        \"user\": {\n            \"_id\": \"6465a13647a992884aaf3bce\",\n            \"email\": \"test01@gmail.com\",\n            \"first_name\": \"Bui\",\n            \"last_name\": \"Thien\",\n            \"phone_number\": \"0357748844\"\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY1YTEzNjQ3YTk5Mjg4NGFhZjNiY2UiLCJlbWFpbCI6InRlc3QwMUBnbWFpbC5jb20iLCJpYXQiOjE2ODQzODIyMzIsImV4cCI6MTY4NDU1NTAzMn0.mYprGMXWxL8eDD38giljUlHD1XMERkCs41Dl112q6tM\",\n            \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY1YTEzNjQ3YTk5Mjg4NGFhZjNiY2UiLCJlbWFpbCI6InRlc3QwMUBnbWFpbC5jb20iLCJpYXQiOjE2ODQzODIyMzIsImV4cCI6MTY4NDk4NzAzMn0.qDALb214-EYVCJFYlQhwQAV5Fev4LDlCQ_9341iT6Sc\",\n            \"expires\": 655200000\n        }\n    }\n}\n\n```\n\n**Các trường thông tin trong request body gồm:**\n\n- `email` (bắt buộc): Địa chỉ email của khách hàng, duy nhất trên hệ thống.\n- `password` (bắt buộc): Mật khẩu của khách hàng.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "email": "buithien.dev@gmail.com",
+                                    "password": "test123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/refresh": {
+            "post": {
+                "tags": ["Customer Access"],
+                "summary": "RefreshToken",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "email": "test01@gmail.com",
+                                    "password": "test0123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{CLIENT_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_CLIENT}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/logout": {
+            "post": {
+                "tags": ["Customer Access"],
+                "summary": "Logout",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "email": "test01@gmail.com",
+                                    "password": "test0123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{CLIENT_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_CLIENT}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/verify/{email}": {
+            "get": {
+                "tags": ["Customer Access"],
+                "summary": "Verify Email",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "buithien.dev@gmail.com"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/shiip/public-api/master-data/province": {
+            "get": {
+                "tags": ["API GHN"],
+                "summary": "Api Province",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "bd38b901-f890-11ed-a281-3aa62a37e0a5"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/shiip/public-api/master-data/district": {
+            "get": {
+                "tags": ["API GHN"],
+                "summary": "Api District",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "bd38b901-f890-11ed-a281-3aa62a37e0a5"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/shiip/public-api/master-data/ward": {
+            "get": {
+                "tags": ["API GHN"],
+                "summary": "Api Ward",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "bd38b901-f890-11ed-a281-3aa62a37e0a5"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/shiip/public-api/v2/shipping-order/available-services": {
+            "get": {
+                "tags": ["API GHN"],
+                "summary": "Get Service",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "bd38b901-f890-11ed-a281-3aa62a37e0a5"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/shiip/public-api/v2/shipping-order/fee": {
+            "get": {
+                "tags": ["API GHN"],
+                "summary": "TakeTheFreight",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "bd38b901-f890-11ed-a281-3aa62a37e0a5"
+                    },
+                    {
+                        "name": "shop_id",
+                        "in": "header",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "4162956"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{productId}/images/count": {
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "Count Image",
+                "parameters": [
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "646ed457f6806785de2eb7c8"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{productId}/images/{imageId}": {
+            "delete": {
+                "tags": ["Product Api For Admin"],
+                "summary": "DeleteImage",
+                "parameters": [
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "646ecc54168153b8d008e75f"
+                    },
+                    {
+                        "name": "imageId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "646ecc54168153b8d008e759"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "FindById",
+                "parameters": [
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "646ed457f6806785de2eb7c8"
+                    },
+                    {
+                        "name": "imageId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "646ed457f6806785de2eb7c1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{productId}/images": {
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "FindAll",
+                "parameters": [
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "11"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ctime"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "image_url,image_file_name"
+                    },
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "646ed457f6806785de2eb7c8"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/images": {
+            "post": {
+                "tags": ["Product Api For Admin"],
+                "summary": "Create Image",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "type": "string",
+                                "example": "\"{\\n    \\\"product_id\\\": \\\"647c9d089c12ed6112ff495c\\\",\\n    \\\"image_url\\\": \\\"https://www.mongodb.com/docs/manual/reference/method/db.collection.insertMany/\\\",\\n    \\\"image_file_name\\\": \\\"14.jpg\\\"\\n}\""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/create": {
+            "post": {
+                "tags": ["Product Api For Admin"],
+                "summary": "CreateProduct",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "type": "string",
+                                "example": "\"{\\n    \\\"product_name\\\": \\\"Macbook Air M2_2022\\\",\\n    \\\"product_description\\\": \\\"The MacBook Air M2 is a laptop that feels truly worthy of the Air name. Yes, the cheaper MacBook Air M1 is still good, but the Air M2 is thinner, lighter and faster and  gives you even faster performance and a sharper webcam. With the new MacBook Air M2 (from $1,199, tested at $1,899), Apple paired an even faster M2 chip with a much sleeker design. Carrying this 2.7-pound notebook around and using it, this is a laptop that reminds me of the iconic original Air that Steve Jobs pulled out of a manilla envelope all those years ago. As you’ll see in my full MacBook Air M2 review, the new Air has a great combination of portability, performance, display quality and overall comfort. Its over 14 hours of battery life in our testing is also very impressive.\\\",\\n    \\\"product_type\\\": \\\"Electronic\\\",\\n    \\\"product_vendor\\\": \\\"Apple\\\",\\n    \\\"tags\\\": \\\"Electronic, Macbook\\\",\\n    \\\"product_images\\\": [\\n        {\\n            \\\"image_url\\\": \\\"https://www.apple.com/v/macbook-air-m2/e/images/overview/design/finish_silver__fl868a6lcs2u_large.jpg\\\",\\n            \\\"image_file_name\\\": \\\"macair.jpg\\\"\\n        },\\n        {\\n            \\\"image_url\\\": \\\"https://cdn.tgdd.vn/Files/2022/07/16/1448221/hinh-anh-macbook-air-m2-tgdd-1-1111_1280x720-800-resize.jpg\\\",\\n            \\\"image_file_name\\\": \\\"macairm2.jpg\\\"\\n        }\\n    ],\\n    \\\"product_variants\\\": [\\n        {\\n            \\\"barcode\\\": \\\"118hs7731\\\",\\n            \\\"price\\\": 25500000,\\n            \\\"grams\\\": 1.52,\\n            \\\"sku\\\": \\\"airm2_01\\\",\\n            \\\"position\\\": 1,\\n            \\\"inventory_management\\\": null,\\n            \\\"inventory_quantity\\\": 500,\\n            \\\"inventory_policy\\\": \\\"continue\\\",\\n            \\\"option1\\\": \\\"MidNight\\\",\\n            \\\"option2\\\": \\\"8GB\\\",\\n            \\\"option3\\\": \\\"256GB\\\"\\n        },\\n        {\\n            \\\"barcode\\\": \\\"118hs7732\\\",\\n            \\\"price\\\": 26000000,\\n            \\\"grams\\\": 1.52,\\n            \\\"sku\\\": \\\"airm2_02\\\",\\n            \\\"position\\\": 2,\\n            \\\"inventory_management\\\": null,\\n            \\\"inventory_quantity\\\": 400,\\n            \\\"inventory_policy\\\": \\\"continue\\\",\\n            \\\"option1\\\": \\\"MidNight\\\",\\n            \\\"option2\\\": \\\"8GB\\\",\\n            \\\"option3\\\": \\\"512GB\\\"\\n        },\\n        {\\n            \\\"barcode\\\": \\\"118hs7733\\\",\\n            \\\"price\\\": 27000000,\\n            \\\"grams\\\": 1.52,\\n            \\\"sku\\\": \\\"macair-03\\\",\\n            \\\"position\\\": 1,\\n            \\\"inventory_management\\\": null,\\n            \\\"inventory_quantity\\\": 80,\\n            \\\"inventory_policy\\\": \\\"continue\\\",\\n            \\\"option1\\\": \\\"MidNight\\\",\\n            \\\"option2\\\": \\\"16GB\\\",\\n            \\\"option3\\\": \\\"256GB\\\"\\n        }\\n    ],\\n    \\\"product_options\\\": [\\n        {\\n            \\\"name\\\": \\\"Color\\\"\\n        },\\n        {\\n            \\\"name\\\": \\\"Ram\\\"\\n        },\\n        {\\n            \\\"name\\\": \\\"Storage\\\"\\n        }\\n    ],\\n    \\\"product_ratings_averager\\\": 4.5,\\n    \\\"isDraft\\\": false,\\n    \\\"isPublished\\\": true,\\n    \\\"only_hide_from_list\\\": false,\\n    \\\"not_allow_promotion\\\": false,\\n    \\\"published_at\\\": \\\"1684645807964\\\"\\n}\""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/published/all": {
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "FindAllPublished",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/drafts/all": {
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "FindAllDraft",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{id}": {
+            "get": {
+                "tags": ["Product Api For Admin"],
+                "summary": "FindProductByIdForAdmin",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647c9d089c12ed6112ff495c"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["Product Api For Admin"],
+                "summary": "UpdateProduct",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "type": "string",
+                                "example": "\"{\\n    \\\"product_name\\\": \\\"Macbook Air M2-291212222\\\",\\n    \\\"product_description\\\": \\\"Product Applee\\\",\\n    \\\"product_type\\\": \\\"Electronic\\\",\\n    \\\"product_vendor\\\": \\\"Apple\\\",\\n    \\\"not_allow_promotion\\\": false\\n}\""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647c9d089c12ed6112ff495c"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{id}/publish": {
+            "post": {
+                "tags": ["Product Api For Admin"],
+                "summary": "Publish Product",
+                "requestBody": {
+                    "content": {}
+                },
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a241553596d16022be20e"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{id}/unpublish": {
+            "post": {
+                "tags": ["Product Api For Admin"],
+                "summary": "Unpublish Product",
+                "requestBody": {
+                    "content": {}
+                },
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a241553596d16022be20e"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dashboard/api/products/{id}/tags": {
+            "post": {
+                "tags": ["Product Api For Admin"],
+                "summary": "AddTagsProduct",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "type": "string",
+                                "example": "\"{\\n    \\\"tags\\\": \\\"elect\\\"\\n}\""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a241553596d16022be20e"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Product Api For Admin"],
+                "summary": "RemoveTags",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{ADMIN_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_ADMIN}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "646aed2e5c59c35e36fee438"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/products": {
+            "get": {
+                "tags": ["Product Api For Client"],
+                "summary": "FindAllProduct",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/products/{id}": {
+            "get": {
+                "tags": ["Product Api For Client"],
+                "summary": "FindProductById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a241553596d16022be20e"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/products/count": {
+            "get": {
+                "tags": ["Product Api For Client"],
+                "summary": "Count",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/address/create": {
+            "post": {
+                "tags": ["Api Address Of Customer For Client"],
+                "summary": "Create",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "address1": "75/22 ",
+                                    "province_code": "11",
+                                    "province": "Bình Dương",
+                                    "district_code": "22",
+                                    "district": "Dĩ An",
+                                    "ward_code": "04",
+                                    "ward": "Đông Hoà",
+                                    "first_name": "Bùi",
+                                    "last_name": "Thiện",
+                                    "phone_number": "0947796205"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{CLIENT_ID}}"
+                    },
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_CLIENT}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/address": {
+            "get": {
+                "tags": ["Api Address Of Customer For Client"],
+                "summary": "FindAll",
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_CLIENT}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{CLIENT_ID}}"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "address1,default,province,district,ward"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/address/{id}": {
+            "get": {
+                "tags": ["Api Address Of Customer For Client"],
+                "summary": "FindById",
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_CLIENT}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{CLIENT_ID}}"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "address1,default,province,district,ward"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "6467b75aa379652dc6520054"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Api Address Of Customer For Client"],
+                "summary": "DeleteById",
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_CLIENT}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{CLIENT_ID}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647a19ef691f35b6da86cdd0"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["Api Address Of Customer For Client"],
+                "summary": "UpdateAddress",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "type": "string",
+                                "example": "\"{\\n    // \\\"address1\\\": \\\"Etown 3, Cộng Hoà, Tân Bình, TP. Hồ Chí Minh\\\",\\n    // \\\"province_code\\\": \\\"1\\\",\\n    \\\"province\\\": \\\"Hồ Chí Minh\\\",\\n    \\\"district_code\\\": \\\"9\\\",\\n    \\\"district\\\": \\\"Tân Bình\\\",\\n    \\\"ward_code\\\": \\\"03\\\",\\n    \\\"ward\\\": \\\"Cộng Hoà\\\",\\n    \\\"first_name\\\": \\\"Yến\\\"\\n    // \\\"last_name\\\": \\\"Anh\\\",\\n    // \\\"phone_number\\\": \\\"0947796205\\\",\\n    // \\\"default\\\": \\\"true\\\"\\n}\""
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_CLIENT}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{CLIENT_ID}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647c3a3671322f4b9f29102a"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/api/customers/address/{id}/default": {
+            "patch": {
+                "tags": ["Api Address Of Customer For Client"],
+                "summary": "SetDefaultAddress",
+                "requestBody": {
+                    "content": {}
+                },
+                "parameters": [
+                    {
+                        "name": "x-rftoken-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{REFRESHTOKEN_CLIENT}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "application/json"
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "{{CLIENT_ID}}"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true,
+                        "example": "647aea76a72f4310e9f9c6b7"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
